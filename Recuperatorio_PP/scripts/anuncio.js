@@ -13,12 +13,13 @@ class Anuncio{
 
 class Anuncio_Mascota extends Anuncio{
 
-    constructor(id,titulo,descripcion,animal,precio,raza,nacimiento,vacuna,alimentado){
+    constructor(id,titulo,descripcion,animal,precio,raza,nacimiento,vacuna,alimentado, enfermo){
         super(id,titulo,descripcion,animal,precio);
         this.raza = raza;
         this.nacimiento = nacimiento;
         this.vacuna = vacuna;
         this.alimentado = alimentado;
+        this.enfermo = enfermo;
     }
 
    

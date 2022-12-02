@@ -92,6 +92,23 @@ function crearArticulo(anuncio, contador) {
     li3.appendChild(span3);
     ul.appendChild(li3);
 
+    var li4 = document.createElement('li');
+    li4.setAttribute('class', 'item');
+    const span4 = document.createElement("span");
+    var txt7 = document.createTextNode("¿Alimentado? " + anuncio.alimentado);
+    span4.appendChild(txt7);
+    li4.appendChild(span4);
+    ul.appendChild(li4);
+
+    var li5 = document.createElement('li');
+    li5.setAttribute('class', 'item');
+    const span5 = document.createElement("span");
+    var txt8 = document.createTextNode("¿Enfermo? " + anuncio.enfermo);
+    span5.appendChild(txt8);
+    li5.appendChild(span5);
+    ul.appendChild(li5);
+
+
     document.getElementsByClassName("miArticulo"+contador)[0].appendChild(ul);
 
     var boton = document.createElement("BUTTON");

@@ -58,7 +58,7 @@ h1{
 
 #articulo{
     height: 50%;
-    width: 35%;
+    width: 45%;
     border-radius: 50px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     border-style:solid black;
@@ -88,7 +88,7 @@ li {
     list-style-type: none;
     display: inline;
     margin: 50px;
-    margin-right: 35px;
+    margin-left: 1px;
     text-align: left;
 
 }
@@ -106,6 +106,8 @@ li {
  article img {
     width: 25px;
 }
+
+
 
 
 

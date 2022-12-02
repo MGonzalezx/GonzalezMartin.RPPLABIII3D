@@ -72,14 +72,17 @@ window.addEventListener("click", (e)=>{
 function CrearAlertaAlta(){
   var alerta = document.getElementById("alerta");
   alerta.setAttribute("class","alert");
+  //unfade(alerta);
   var div = document.createElement("div");
   div.setAttribute("class","alertaAlta");
   var span = document.createElement("span");
   span.setAttribute("class","closebtn");
   span.setAttribute("onclick", "this.parentElement.style.display='none';");
-  span.innerHTML="X";
+  span.innerHTML="&times";
   div.innerHTML = "Anuncio dado de alta";
-
+  //setTimeout(() => {
+    //fade(alerta);
+  //}, 4000);
   div.appendChild(span);
   alerta.appendChild(div);
 }
@@ -87,14 +90,17 @@ function CrearAlertaAlta(){
 function CrearAlertaBaja(){
   var alerta = document.getElementById("alerta");
   alerta.setAttribute("class","alert");
+  //unfade(alerta);
   var div = document.createElement("div");
   div.setAttribute("class","alertaBaja");
   var span = document.createElement("span");
   span.setAttribute("class","closebtn");
   span.setAttribute("onclick", "this.parentElement.style.display='none';");
-  span.innerHTML="X";
+  span.innerHTML="&times";
   div.innerHTML = "Anuncio Eliminado";
-
+  /*setTimeout(() => {
+    fade(alerta);
+  }, 4000);*/
   
   div.appendChild(span);
   alerta.appendChild(div);
@@ -103,17 +109,46 @@ function CrearAlertaBaja(){
 function CrearAlertaModificacion(){
   var alerta = document.getElementById("alerta");
   alerta.setAttribute("class","alert");
+  //unfade(alerta);
   var div = document.createElement("div");
   div.setAttribute("class","alertaModificacion");
   var span = document.createElement("span");
   span.setAttribute("class","closebtn");
   span.setAttribute("onclick", "this.parentElement.style.display='none';");
-  span.innerHTML="X";
+  span.innerHTML="&times";
   div.innerHTML = "Anuncio Modificado";
-
+ /* setTimeout(() => {
+    fade(alerta);
+  }, 4000);*/
   div.appendChild(span);
   alerta.appendChild(div);
 }
+
+/*function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
+
+function unfade(element) {
+  var op = 0.1;  // initial opacity
+  element.style.display = 'block';
+  var timer = setInterval(function () {
+      if (op >= 1){
+          clearInterval(timer);
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op += op * 0.1;
+  }, 20);
+}*/
 
 function CambiarVisibilidad() {
   var x = document.getElementById("btnDelete");
@@ -129,7 +164,7 @@ function CambiarVisibilidad() {
 }
 
 function cargarFormulario(anuncio){
-  const {txtId,txtTitulo,txtDescripcion,rdoAnimal,txtPrecio,txtRaza,txtFechaNacimiento,vacuna,alimentado} = $formulario;
+  const {txtId,txtTitulo,txtDescripcion,rdoAnimal,txtPrecio,txtRaza,txtFechaNacimiento,vacuna,alimentado,rdoEnfermo} = $formulario;
 
   txtId.value = anuncio.id;
   txtTitulo.value = anuncio.titulo;
@@ -139,6 +174,7 @@ function cargarFormulario(anuncio){
   txtRaza.value = anuncio.raza;
   txtFechaNacimiento.value = anuncio.nacimiento;
   vacuna.value = anuncio.vacuna;
+  rdoEnfermo.value = anuncio.enfermo;
 
   if(anuncio.alimentado == "no"){
     alimentado.checked = false;
@@ -160,7 +196,7 @@ const $formulario = document.forms[0];
     }
   
     console.log("Enviando....");
-    const {txtId,txtTitulo,txtDescripcion,rdoAnimal,txtPrecio,txtRaza,txtFechaNacimiento,vacuna,alimentado} = $formulario;
+    const {txtId,txtTitulo,txtDescripcion,rdoAnimal,txtPrecio,txtRaza,txtFechaNacimiento,vacuna,alimentado,rdoEnfermo} = $formulario;
 
     var alimentadoTexto = "";
 
@@ -170,7 +206,7 @@ const $formulario = document.forms[0];
       alimentadoTexto = "no";
     }
 
-    const formAnuncio = new Anuncio_Mascota(txtId.value,txtTitulo.value,txtDescripcion.value,rdoAnimal.value,txtPrecio.value,txtRaza.value,txtFechaNacimiento.value,vacuna.value,alimentadoTexto);
+    const formAnuncio = new Anuncio_Mascota(txtId.value,txtTitulo.value,txtDescripcion.value,rdoAnimal.value,txtPrecio.value,txtRaza.value,txtFechaNacimiento.value,vacuna.value,alimentadoTexto, rdoEnfermo.value);
 
     
 
