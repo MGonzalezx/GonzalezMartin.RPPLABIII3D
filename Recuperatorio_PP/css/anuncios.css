@@ -297,6 +297,8 @@ footer nav a :hover {
     background-color: #f44336; 
     color: black;
     margin-bottom: 15px;
+    opacity: 1;
+    animation: fade 4s linear;
   }
   
   
@@ -321,6 +323,8 @@ footer nav a :hover {
     background-color: #00ff0d;
     color: rgb(0, 0, 0);
     margin-bottom: 15px;
+    opacity: 1;
+    animation: fade 4s linear;
   }
 
   .alertaModificacion {
